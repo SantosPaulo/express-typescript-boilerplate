@@ -33,6 +33,7 @@
   },
   "_moduleAliases": {
     "@routes": "dist/routes",
-    "@controllers": "dist/controllers"
+    "@controllers": "dist/controllers",
+    "@middlewares": "dist/middlewares"
   }
 }

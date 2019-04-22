@@ -2,7 +2,8 @@ import * as dotenv from "dotenv";
 import * as path from 'path';
 import 'module-alias/register';
 
-import createError from 'http-errors';
+import handlers from '@middlewares/handlers';
+
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 
@@ -26,21 +27,10 @@ app.use(Express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-    next(createError(404));
-});
+app.use(handlers.notFoundHandler);
 
 // error handler
-app.use((err: any, req: Express.Request, res: Express.Response, next: Express.NextFunction) => {
-
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
+app.use(handlers.internalServerError);
 
 export default app;
 

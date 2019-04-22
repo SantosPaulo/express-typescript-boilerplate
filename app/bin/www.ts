@@ -12,7 +12,7 @@ debug('generate:server');
 /**
  * Get port from environment and store in Express.
  */
-const env: string|undefined|null = process.env.NODE_ENV;
+const env: string|undefined|null = process.env.APP_ENV;
 const port = normalizePort(process.env.APP_PORT || '3000');
 app.set('port', port);
 
