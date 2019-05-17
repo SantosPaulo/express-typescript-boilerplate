@@ -7,8 +7,11 @@ import handlers from '@middlewares/handlers';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 
+import cors from 'cors';
 import Express from 'express';
 import routes from '@routes/index';
+
+import * as corsConfig from '@configs/cors';
 
 dotenv.config();
 
@@ -16,6 +19,8 @@ const app: Express.Application = Express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(cors(corsConfig.options));
 
 app.use(logger('dev'));
 app.use(Express.json());
@@ -33,4 +38,3 @@ app.use(handlers.notFoundHandler);
 app.use(handlers.internalServerError);
 
 export default app;
-
