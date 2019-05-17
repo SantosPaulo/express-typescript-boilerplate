@@ -47,6 +47,7 @@
     "@routes": "dist/routes",
     "@controllers": "dist/controllers",
     "@middlewares": "dist/middlewares",
-    "@configs": "dist/configs"
+    "@configs": "dist/configs",
+    "@decorators": "dist/decorators"
   }
 }

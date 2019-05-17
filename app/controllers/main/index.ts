@@ -1,14 +1,14 @@
-import e from 'express';
+import { Request, Response } from 'express';
+import { LogClass } from '@decorators/log-decorator';
 
-const main = {
+@LogClass()
+export class Main {
 
-    index: (req: e.Request, res: e.Response, next: e.NextFunction) => {
+    constructor() {}
+
+    index(req: Request, res: Response) {
         return res.render('index', {
             title: 'Express with TypeScript'
         });
     }
-
 }
-
-export default main;
-
